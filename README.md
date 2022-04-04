@@ -4,4 +4,4 @@ Realizado por:
 
 Gabriel Paulo - gabrielpaulo@ucl.br
 
-João Lucas - 
+João Lucas -  joaolucasc@ucl.br
