@@ -4,12 +4,54 @@
 
 char convert[10] = {'A','B','C','D','E','F','G','H','I','J'}; //array para transformar numeros em letras
 
+/*char numeroparaletra(char numero)
+{
+    switch (numero)
+    {
+        case '0':
+            return 'ZA';
+            break;
+        case '1':
+            return 'ZB';
+            break;
+        case '2':
+            return 'ZC';
+            break;
+        case '3':
+            return 'ZD';
+            break;
+        case '4':
+            return 'ZE';
+            break;
+        case '5':
+            return 'ZF';
+            break;
+        case '6':
+            return 'ZG';
+            break;
+        case '7':
+            return 'ZH';
+            break;
+        case '8':
+            return 'ZI';
+            break;
+        case '9':
+            return 'ZJ';
+            break;
+        default:
+            break;
+    }
+}*/
+
 //char convert[10] = "ABCDEFGHIJ";
 void Codificar(char texto[1000]) //FUNÇÃO PARA CODIFICAR
 {
     char *teste = strtok(texto,"");
+    //int count = 1;
+    char num[1000];
     for(int i = 0; i < strlen(texto); i++)
     {
+        
         if(teste[i] >= '0' && teste[i] <= '9')
         {
             printf("\n%c <<< e um numero\n", teste[i]);
@@ -17,9 +59,18 @@ void Codificar(char texto[1000]) //FUNÇÃO PARA CODIFICAR
         if(teste[i] == 'Z' || teste[i] == 'z')
         {
             printf("\n%c <-- e um Z",teste[i]);
+            strcat(num, "ZZ");
+        }
+        if(teste[i] == teste[i-1])
+        {
+            //count++;
         }
         printf("\n%c\n", teste[i]);
+        strcat(num, teste[i]);
+        //printf("%s", teste[i]);
     }
+    //printf("%d letras repetidas", count);
+    printf("%s", num);
 }
 
 
@@ -30,9 +81,6 @@ void Decodificar(char texto[1000]) //FUNÇÃO PARA DECODIFICAR
 
 int main(void) //MAIN 
 {
-    void codificar(char texto[]);
-    void decodificar(char texto[]);
-
     char escolha;
     printf("Ola Bem vindo ao sistema de codificacao e decodificacao\nInsira a baixo a opcao desejada:\nC - codificar\nD - Decodificar\n");
     scanf("%c", &escolha);
@@ -43,7 +91,6 @@ int main(void) //MAIN
         scanf("%s", cod);
         printf("Escolha Codificar!\n");
         Codificar(cod);
-
     }
     else if (escolha == 'D' || escolha == 'd')
     {
