@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 
+char convert[10] = {'A','B','C','D','E','F','G','H','I','J'};
+
+//char convert[10] = "ABCDEFGHIJ";
 void Codificar(char texto[1000])
 {
+    /*if(strcmp(texto, "Z") != 0) 
+    {
+        printf("contem Z");
+    }*/
     printf("%s\n", texto);
 }
 void Decodificar(char texto[1000])
