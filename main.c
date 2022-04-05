@@ -1,22 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 
-char convert[10] = {'A','B','C','D','E','F','G','H','I','J'};
+char convert[10] = {'A','B','C','D','E','F','G','H','I','J'}; //array para transformar numeros em letras
 
 //char convert[10] = "ABCDEFGHIJ";
-void Codificar(char texto[1000])
+void Codificar(char texto[1000]) //FUNÇÃO PARA CODIFICAR
 {
-    /*if(strcmp(texto, "Z") != 0) 
+    if(strcmp(texto, "Z") != 0) 
     {
         printf("contem Z");
-    }*/
+    }
     printf("%s\n", texto);
 }
-void Decodificar(char texto[1000])
+
+
+void Decodificar(char texto[1000]) //FUNÇÃO PARA DECODIFICAR
 {
     printf("%s\n", texto);
 }
-int main()
+
+
+int main() //MAIN 
 {
     char escolha;
     printf("Ola Bem vindo ao sistema de codificacao e decodificacao\nInsira a baixo a opcao desejada:\nC - codificar\nD - Decodificar\n");
