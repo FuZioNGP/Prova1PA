@@ -2,84 +2,127 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 char convert[10] = {'A','B','C','D','E','F','G','H','I','J'}; //array para transformar numeros em letras
 
-/*char numeroparaletra(char numero)
-{
-    switch (numero)
-    {
-        case '0':
-            return 'ZA';
-            break;
-        case '1':
-            return 'ZB';
-            break;
-        case '2':
-            return 'ZC';
-            break;
-        case '3':
-            return 'ZD';
-            break;
-        case '4':
-            return 'ZE';
-            break;
-        case '5':
-            return 'ZF';
-            break;
-        case '6':
-            return 'ZG';
-            break;
-        case '7':
-            return 'ZH';
-            break;
-        case '8':
-            return 'ZI';
-            break;
-        case '9':
-            return 'ZJ';
-            break;
-        default:
-            break;
-    }
-}*/
-
-//char convert[10] = "ABCDEFGHIJ";
 void Codificar(char texto[1000]) //FUNÇÃO PARA CODIFICAR
 {
-    char *teste = strtok(texto,"");
-    //int count = 1;
+    int count = 1;
     char num[1000];
-    for(int i = 0; i < strlen(texto); i++)
+    int i = 0;
+    char *teste = strtok(texto,"");
+    do
     {
+        i++;
         if(teste[i] >= '0' && teste[i] <= '9')
         {
-            printf("\n%c <<< e um numero\n", teste[i]);
+            switch (teste[i])
+            {
+            case '0':
+                strcat(num,"ZA");
+                break;
+            case '1':
+                strcat(num,"ZB");
+                break;
+            case '2':
+                strcat(num,"ZC");
+                break;
+            case '3':
+                strcat(num,"ZD");
+                break;
+            case '4':
+                strcat(num,"ZE");
+                break;
+            case '5':
+                strcat(num,"ZF");
+                break;
+            case '6':
+                strcat(num,"ZG");
+                break;
+            case '7':
+                strcat(num,"ZH");
+                break;
+            case '8':
+                strcat(num,"ZI");
+                break;
+            case '9':
+                strcat(num,"ZJ");
+                break;
+            default:
+                break;
+            }
         }
-        if(teste[i] == 'Z' || teste[i] == 'z')
+        else if(teste[i] == 'Z' || teste[i] == 'z')
         {
-            printf("\n%c <-- e um Z",teste[i]);
             strcat(num, "ZZ");
         }
-        if(teste[i] == teste[i-1])
+        else if(teste[i] == teste[i-1])
         {
-            //count++;
-        }
+            count++;
+        }//A
         else{
-            printf("\n%c\n", teste[i]);
             strcat(num, &teste[i]);
-            //printf("%s", teste[i]);
-        }
-
-    }
-    //printf("%d letras repetidas", count);
-    printf("%s\n", num);
-    return;
+        }   
+    } 
+    while (i < strlen(texto));
+    printf("\n%s%d\n", num, count);
 }
 
 
 void Decodificar(char texto[1000]) //FUNÇÃO PARA DECODIFICAR
 {
-    printf("%s\n", texto);
+    int count = 1;
+    char dec[1000];
+    int i = 0;
+    char *teste = strtok(texto,"");
+    do
+    {
+        i++;
+        switch (teste[i])
+        {
+        case 'A':
+            strcat(dec,"0");
+            break;
+        case 'B':
+            strcat(dec,"1");
+            break;
+        case 'C':
+            strcat(dec,"2");
+            break;
+        case 'D':
+            strcat(dec,"3");
+            break;
+        case 'E':
+            strcat(dec,"4");
+            break;
+        case 'F':
+            strcat(dec,"5");
+            break;
+        case 'G':
+            strcat(dec,"6");
+            break;
+        case 'H':
+            strcat(dec,"7");
+            break;
+        case 'I':
+            strcat(dec,"8");
+            break;
+        case 'J':
+            strcat(dec,"9");
+            break;
+        default:
+            break;
+        }
+        if(teste[i] == 'Z' || teste[i] == 'z')
+        {
+            strcat(dec, "");
+        }
+        else{
+            strcat(dec, &teste[i]);
+        }   
+    } 
+    while (i < strlen(texto));
+    printf("\n%s\n", dec);
 }
 
 int main(void) //MAIN 
@@ -94,6 +137,7 @@ int main(void) //MAIN
         scanf("%s", cod);
         printf("Escolha Codificar!\n");
         Codificar(cod);
+        //printf("%s", codificar(cod));
     }
     else if (escolha == 'D' || escolha == 'd')
     {
