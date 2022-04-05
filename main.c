@@ -51,7 +51,6 @@ void Codificar(char texto[1000]) //FUNÇÃO PARA CODIFICAR
     char num[1000];
     for(int i = 0; i < strlen(texto); i++)
     {
-        
         if(teste[i] >= '0' && teste[i] <= '9')
         {
             printf("\n%c <<< e um numero\n", teste[i]);
@@ -65,12 +64,16 @@ void Codificar(char texto[1000]) //FUNÇÃO PARA CODIFICAR
         {
             //count++;
         }
-        printf("\n%c\n", teste[i]);
-        strcat(num, teste[i]);
-        //printf("%s", teste[i]);
+        else{
+            printf("\n%c\n", teste[i]);
+            strcat(num, &teste[i]);
+            //printf("%s", teste[i]);
+        }
+
     }
     //printf("%d letras repetidas", count);
-    printf("%s", num);
+    printf("%s\n", num);
+    return;
 }
 
 
